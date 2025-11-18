@@ -64,9 +64,8 @@ int main(int argc,char** argv)
   // Optionally: choose a different Random engine...
   // G4Random::setTheEngine(new CLHEP::MTwistEngine);
 
-  //use G4SteppingVerboseWithUnits
-  G4int precision = 4;
-  G4SteppingVerbose::UseBestUnit(precision);
+  // Set verbose level for stepping (GEANT4 10.7 compatible)
+  G4VSteppingVerbose::SetInstance(new G4SteppingVerbose);
 
   // 设置随机数种子
   G4Random::setTheSeed(time(NULL));
